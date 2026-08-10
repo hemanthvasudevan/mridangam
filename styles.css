@@ -1,0 +1,454 @@
+/* =========================================================
+   MRIDANGAM SITE — SHARED STYLES
+   Design language grounded in the instrument itself:
+   jackwood shell, goat/hide heads, brass, temple vermilion,
+   and the diagonal leather lacing (kaddaanam) that binds
+   the two drumheads — used here as a recurring lace motif.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&family=Hind+Madurai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --wood-dark:   #241209;   /* seasoned jackwood, near-black */
+  --wood:        #5A3320;   /* jackwood shell */
+  --wood-light:  #7C4A2C;   /* lit edge of the shell */
+  --parchment:   #EFE4C8;   /* goat-skin head */
+  --parchment-2: #E4D5AC;   /* slightly deeper parchment for cards */
+  --hide:        #C9A876;   /* buffalo-hide bass head */
+  --ink:         #221509;   /* body text, reads like the syahi patch */
+  --brass:       #BE9142;   /* brass ring / temple lamp */
+  --brass-light: #E4C077;
+  --sindoor:     #A63C2E;   /* vermilion accent, temple + CTA */
+  --sindoor-dark:#7E2C21;
+
+  --font-display: 'Rozha One', 'Noto Serif Tamil', serif;
+  --font-body: 'Hind Madurai', 'Noto Sans Tamil', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --max-w: 1120px;
+  --radius: 6px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width:100%; display:block; }
+
+a{ color: var(--sindoor-dark); }
+a:hover{ color: var(--sindoor); }
+
+h1,h2,h3,h4{
+  font-family: var(--font-display);
+  color: var(--wood-dark);
+  line-height: 1.15;
+  margin: 0 0 .5em 0;
+  font-weight: 400;
+}
+h1{ font-size: clamp(2.4rem, 5vw, 3.6rem); }
+h2{ font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+h3{ font-size: 1.35rem; }
+
+p{ margin: 0 0 1.1em 0; }
+
+.eyebrow{
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .75rem;
+  color: var(--sindoor-dark);
+  font-weight: 500;
+}
+
+.container{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* focus visibility */
+a:focus-visible, button:focus-visible{
+  outline: 3px solid var(--brass);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+}
+
+/* =========================================================
+   SIGNATURE MOTIF — the diagonal lacing (kaddaanam)
+   A crosshatch of brass thread standing in for the leather
+   straps that lace and tune the two drumheads together.
+   ========================================================= */
+.lace-divider{
+  height: 16px;
+  width: 100%;
+  background-color: var(--wood-dark);
+  background-image:
+    repeating-linear-gradient(135deg, var(--brass) 0 2px, transparent 2px 16px),
+    repeating-linear-gradient(45deg,  var(--brass) 0 2px, transparent 2px 16px);
+  opacity: .9;
+}
+.lace-divider.thin{ height: 8px; }
+.lace-divider.on-parchment{ background-color: var(--parchment-2); }
+.lace-divider.on-parchment{
+  background-image:
+    repeating-linear-gradient(135deg, var(--wood) 0 2px, transparent 2px 16px),
+    repeating-linear-gradient(45deg,  var(--wood) 0 2px, transparent 2px 16px);
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+header.site-header{
+  background: var(--wood-dark);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.nav-row{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand{
+  font-family: var(--font-display);
+  color: var(--parchment);
+  font-size: 1.35rem;
+  text-decoration:none;
+  display:flex;
+  align-items:baseline;
+  gap: .5em;
+}
+.brand .brand-mark{ color: var(--brass-light); font-family: var(--font-mono); font-size: .8rem; letter-spacing:.1em; }
+.brand:hover{ color: var(--parchment); }
+
+nav.primary-nav ul{
+  list-style:none;
+  display:flex;
+  gap: 6px;
+  margin:0; padding:0;
+  flex-wrap: wrap;
+}
+nav.primary-nav a{
+  color: var(--parchment-2);
+  text-decoration:none;
+  font-size: .93rem;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  transition: background .15s ease, color .15s ease;
+  white-space: nowrap;
+}
+nav.primary-nav a:hover{ background: rgba(190,145,66,.18); color: var(--brass-light); }
+nav.primary-nav a.active{ background: var(--brass); color: var(--wood-dark); font-weight:600; }
+
+.nav-toggle{ display:none; }
+
+@media (max-width: 880px){
+  .nav-row{ flex-wrap:wrap; }
+  nav.primary-nav ul{ gap: 2px; }
+  nav.primary-nav a{ font-size: .82rem; padding: 6px 8px; }
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  background: linear-gradient(180deg, var(--wood-dark) 0%, var(--wood) 100%);
+  color: var(--parchment);
+  padding: 72px 0 56px;
+}
+.hero .container{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 48px;
+  align-items:center;
+}
+.hero h1{ color: var(--parchment); }
+.hero p.lede{
+  font-size: 1.15rem;
+  color: var(--parchment-2);
+  max-width: 46ch;
+}
+.hero-figure{
+  border-radius: var(--radius);
+  overflow:hidden;
+  border: 3px solid var(--brass);
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+}
+.hero-figure img{ width:100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+.hero-figure figcaption{
+  background: var(--wood-dark);
+  color: var(--parchment-2);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  padding: 8px 12px;
+}
+@media (max-width: 820px){
+  .hero .container{ grid-template-columns: 1fr; }
+}
+
+.btn{
+  display:inline-block;
+  background: var(--sindoor);
+  color: #fff;
+  text-decoration:none;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  font-weight:600;
+  font-size: .95rem;
+  border: none;
+  cursor:pointer;
+  transition: background .15s ease, transform .15s ease;
+}
+.btn:hover{ background: var(--sindoor-dark); color:#fff; transform: translateY(-1px); }
+.btn.ghost{
+  background: transparent;
+  border: 2px solid var(--brass);
+  color: var(--parchment);
+}
+.btn.ghost:hover{ background: rgba(190,145,66,.15); color: var(--brass-light); }
+
+.btn-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 20px; }
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+section{ padding: 64px 0; }
+section.deep{ background: var(--wood-dark); color: var(--parchment-2); }
+section.deep h2, section.deep h3{ color: var(--parchment); }
+section.mid{ background: var(--parchment-2); }
+
+.section-head{ max-width: 68ch; margin-bottom: 36px; }
+
+.two-col{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items:start;
+}
+@media (max-width: 780px){ .two-col{ grid-template-columns: 1fr; } }
+
+figure{ margin:0; }
+figure.framed img{
+  border-radius: var(--radius);
+  border: 3px solid var(--wood);
+}
+figure.framed figcaption{
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: var(--wood);
+  margin-top: 8px;
+  opacity: .85;
+}
+section.deep figure.framed figcaption{ color: var(--brass-light); }
+
+/* =========================================================
+   CARDS / GRIDS
+   ========================================================= */
+.grid{
+  display:grid;
+  gap: 24px;
+}
+.grid.cols-2{ grid-template-columns: repeat(2, 1fr); }
+.grid.cols-3{ grid-template-columns: repeat(3, 1fr); }
+.grid.cols-4{ grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px){
+  .grid.cols-3, .grid.cols-4{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px){
+  .grid.cols-2, .grid.cols-3, .grid.cols-4{ grid-template-columns: 1fr; }
+}
+
+.card{
+  background: #fff;
+  border: 1px solid rgba(90,51,32,.18);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.card.fact{
+  background: var(--parchment-2);
+  border-left: 4px solid var(--sindoor);
+}
+.card.fact .eyebrow{ display:block; margin-bottom: 6px; }
+.card.fact strong{ font-family: var(--font-display); font-size: 1.1rem; color: var(--wood-dark); display:block; }
+
+.card.person{
+  background: var(--wood-dark);
+  color: var(--parchment-2);
+  overflow: hidden;
+  padding: 0;
+  border: none;
+}
+.card.person img{ width:100%; aspect-ratio: 3/4; object-fit: cover; }
+.card.person .body{ padding: 18px 20px 22px; }
+.card.person h3{ color: var(--parchment); margin-bottom: 4px; }
+.card.person .role{ font-family: var(--font-mono); font-size: .74rem; color: var(--brass-light); text-transform: uppercase; letter-spacing: .08em; }
+.card.person p{ font-size: .92rem; color: var(--parchment-2); margin-top: 10px; }
+.card.person .credit{ font-family: var(--font-mono); font-size: .65rem; opacity:.6; margin-top: 10px; }
+
+.card.part{
+  border-top: 4px solid var(--brass);
+}
+.card.part .num{
+  font-family: var(--font-mono);
+  color: var(--sindoor-dark);
+  font-size: .8rem;
+}
+
+.pill-list{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px; }
+.pill-list li{
+  background: rgba(166,60,46,.1);
+  border: 1px solid rgba(166,60,46,.35);
+  color: var(--sindoor-dark);
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+
+blockquote{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--wood-dark);
+  border-left: 4px solid var(--brass);
+  padding-left: 20px;
+  margin: 0;
+}
+section.deep blockquote{ color: var(--parchment); }
+blockquote cite{
+  display:block;
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  color: var(--sindoor-dark);
+  font-style: normal;
+  margin-top: 10px;
+}
+section.deep blockquote cite{ color: var(--brass-light); }
+
+table{ width:100%; border-collapse: collapse; }
+table caption{ text-align:left; font-family: var(--font-mono); font-size:.78rem; margin-bottom:8px; color: var(--wood);}
+th, td{
+  text-align:left;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(90,51,32,.2);
+  font-size: .93rem;
+}
+th{ font-family: var(--font-mono); text-transform: uppercase; font-size: .72rem; letter-spacing: .06em; color: var(--wood); }
+
+/* timeline (history page) */
+.timeline{ position:relative; padding-left: 28px; border-left: 3px solid var(--brass); }
+.timeline-item{ position:relative; margin-bottom: 34px; }
+.timeline-item:last-child{ margin-bottom:0; }
+.timeline-item::before{
+  content:'';
+  position:absolute;
+  left:-34px; top: 4px;
+  width:14px; height:14px;
+  border-radius:50%;
+  background: var(--sindoor);
+  border: 3px solid var(--parchment);
+  box-shadow: 0 0 0 2px var(--brass);
+}
+.timeline-item .when{
+  font-family: var(--font-mono);
+  color: var(--sindoor-dark);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing:.05em;
+}
+
+/* buying guide checklist */
+.checklist{ list-style:none; margin:0; padding:0; display:grid; gap:14px; }
+.checklist li{
+  display:flex; gap: 12px;
+  background:#fff;
+  border:1px solid rgba(90,51,32,.18);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.checklist li::before{
+  content:'✓';
+  font-weight:700;
+  color:#fff;
+  background: var(--sindoor);
+  width:22px; height:22px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  font-size:.75rem;
+  margin-top:2px;
+}
+
+.resource-card{
+  background:#fff;
+  border:1px solid rgba(90,51,32,.18);
+  border-radius: var(--radius);
+  padding: 20px;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+.resource-card .loc{ font-family: var(--font-mono); font-size:.75rem; color: var(--sindoor-dark); text-transform:uppercase; letter-spacing:.05em; }
+.resource-card a.visit{ font-weight:600; }
+
+.note-box{
+  background: var(--parchment-2);
+  border: 1px dashed var(--wood);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  font-size: .95rem;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer.site-footer{
+  background: var(--wood-dark);
+  color: var(--parchment-2);
+  padding: 48px 0 28px;
+}
+footer.site-footer .container{
+  display:grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 32px;
+}
+footer.site-footer h4{ color: var(--brass-light); font-size: 1rem; }
+footer.site-footer ul{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+footer.site-footer a{ color: var(--parchment-2); text-decoration:none; font-size: .92rem; }
+footer.site-footer a:hover{ color: var(--brass-light); }
+.footer-bottom{
+  max-width: var(--max-w);
+  margin: 32px auto 0;
+  padding: 20px 24px 0;
+  border-top: 1px solid rgba(239,228,200,.15);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: rgba(239,228,200,.55);
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
+@media (max-width: 780px){
+  footer.site-footer .container{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px){
+  footer.site-footer .container{ grid-template-columns: 1fr; }
+}
+
+.credit-line{ font-family: var(--font-mono); font-size: .68rem; opacity:.7; margin-top:6px; }
