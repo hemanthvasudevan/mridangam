@@ -8,8 +8,24 @@
   "use strict";
 
   function getIndex() {
-    return window.mridangamSearchIndex || [];
+    var staticPages = window.mridangamSearchIndex || [];
+    var products = (window.mridangamProducts || []).map(function (p) {
+      return {
+        page: "product.html?id=" + encodeURIComponent(p.id),
+        title: p.name,
+        section: p.category === "mridangam" ? "Shop \u2013 Mridangams" : "Shop \u2013 Parts & Accessories",
+        snippet: p.shortDescription + " " + window.MridangamShop_formatPriceFallback(p.price),
+        keywords: [p.name, p.sku, p.category, p.shortDescription, p.description, (p.colors || []).join(" ")].join(" ")
+      };
+    });
+    return staticPages.concat(products);
   }
+
+  // Small standalone price formatter so search-data merging doesn't
+  // depend on ecommerce.js having loaded first.
+  window.MridangamShop_formatPriceFallback = window.MridangamShop_formatPriceFallback || function (n) {
+    return "\u20b9" + Number(n).toLocaleString("en-IN");
+  };
 
   function runSearch(term) {
     var termLower = (term || "").trim().toLowerCase();
