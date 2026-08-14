@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.adobeDataLayer = window.adobeDataLayer || [];
+  adobeDataLayer.push({
+    "event": "pageview",
+    "eventType": "pageView",
+    "viewName": "product",
+    "pageName": "product",
+    "category": "shop",
+    "siteSection": "shop",
+    "siteSubSection": "product-detail",
+    "siteName": "www",
+    "dataLayerVer": "1.4",
+    "pageURL": "https://mridangam-one.vercel.app/product.html",
+    "pageType": "product",
+    "siteBrand": "mridangam",
+    "siteEnv": "development",
+    "siteDomain": "mridangam-one.vercel.app",
+    "siteExperience": "desktop"
+  });
+</script>
+<script src="https://assets.adobedtm.com/6196ef54ab10/32341fea68ad/launch-b21902cecd1e.min.js" async></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">Product | The Mridangam Project</title>
+<meta name="description" content="Product details, pricing, colour options, and customer reviews.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="product">
+
+<header class="site-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand"><span class="brand-mark">·</span> The Mridangam</a>
+    <nav class="primary-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">What It Is</a></li>
+        <li><a href="importance.html">Its Elegance</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="exponents.html">Great Exponents</a></li>
+        <li><a href="components.html">Anatomy &amp; Craft</a></li>
+        <li><a href="buy.html">Where to Buy</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="site-search">
+      <form data-site-search-form role="search" aria-label="Search this site">
+        <input type="search" name="q" placeholder="Search the site…" aria-label="Search the site" autocomplete="off">
+        <button type="submit" aria-label="Submit search">🔍</button>
+        <div class="search-suggestions" hidden></div>
+      </form>
+    </div>
+    <div class="nav-icons">
+      <a href="login.html" class="nav-icon-link" data-account-nav-link aria-label="Login or Register" title="Login or Register">👤</a>
+      <a href="cart.html" class="nav-icon-link" aria-label="Cart">🛒<span class="cart-badge" data-cart-badge hidden>0</span></a>
+    </div>
+  </div>
+</header>
+<div class="lace-divider" aria-hidden="true"></div>
+
+<main>
+  <section style="padding-top:40px;">
+    <div class="container">
+      <p style="font-family:var(--font-mono);font-size:.8rem;"><a href="shop.html">Shop</a> / <span id="breadcrumb-category"></span></p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div id="product-detail-root" class="product-detail">
+        <p>Loading product…</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="lace-divider on-parchment thin" aria-hidden="true"></div>
+
+  <section class="mid">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Customer Reviews</span>
+        <h2 id="reviews-heading">Reviews</h2>
+      </div>
+      <div id="reviews-list"></div>
+
+      <div class="form-card" style="margin-top:32px;">
+        <h3>Write a review</h3>
+        <div id="review-form-message"></div>
+        <form id="review-form">
+          <div class="field">
+            <label for="review-name">Your name</label>
+            <input type="text" id="review-name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="review-rating">Rating</label>
+            <select id="review-rating" name="rating" required>
+              <option value="5">★★★★★ — Excellent</option>
+              <option value="4">★★★★☆ — Good</option>
+              <option value="3">★★★☆☆ — Average</option>
+              <option value="2">★★☆☆☆ — Below average</option>
+              <option value="1">★☆☆☆☆ — Poor</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="review-title">Review title</label>
+            <input type="text" id="review-title" name="title" required>
+          </div>
+          <div class="field">
+            <label for="review-text">Your review</label>
+            <textarea id="review-text" name="text" required></textarea>
+          </div>
+          <button class="btn" type="submit">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>You might also like</h2>
+      </div>
+      <div class="grid cols-3" id="related-products"></div>
+    </div>
+  </section>
+</main>
+
+<div class="lace-divider on-parchment thin" aria-hidden="true"></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <h4>The Mridangam Project</h4>
+      <p style="color:var(--parchment-2);font-size:.9rem;max-width:36ch;">A small reference site — and shop — dedicated to South India's principal Carnatic percussion instrument.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">What It Is</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="buy.html">Buying Guide</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Shop &amp; Support</h4>
+      <ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About &amp; Contact</a></li>
+        <li><a href="faq.html">FAQ / Help</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Images credited on their respective pages, sourced from Wikimedia Commons under Creative Commons licenses.</span>
+    <span>For learning &amp; reference purposes.</span>
+  </div>
+</footer>
+
+<script src="search-data.js"></script>
+<script src="products-data.js"></script>
+<script src="ecommerce.js"></script>
+<script src="search.js"></script>
+<script src="product.js"></script>
+</body>
+</html>
