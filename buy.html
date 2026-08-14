@@ -43,6 +43,13 @@
         <li><a href="buy.html" class="active">Where to Buy</a></li>
       </ul>
     </nav>
+    <div class="site-search">
+      <form data-site-search-form role="search" aria-label="Search this site">
+        <input type="search" name="q" placeholder="Search the site…" aria-label="Search the site" autocomplete="off">
+        <button type="submit" aria-label="Submit search">🔍</button>
+        <div class="search-suggestions" hidden></div>
+      </form>
+    </div>
   </div>
 </header>
 <div class="lace-divider" aria-hidden="true"></div>
@@ -205,5 +212,7 @@
   </div>
 </footer>
 
+<script src="search-data.js"></script>
+<script src="search.js"></script>
 </body>
 </html>
